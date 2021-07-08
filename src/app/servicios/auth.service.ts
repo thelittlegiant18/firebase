@@ -11,7 +11,6 @@ export class AuthService {
   constructor() { }
 
   loginUsuario(email: string, password: string): Promise<firebase.auth.UserCredential> {
-
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
@@ -20,12 +19,15 @@ export class AuthService {
   }
 
   reiniciarContraseña(email: string): Promise<void> {
-
     return firebase.auth().sendPasswordResetEmail(email);
   }
 
   cerrarSesion(): Promise<void> {
     return firebase.auth().signOut();
+  }
+
+  obtenerUsuario() {
+    return firebase.auth().currentUser;
   }
 
 }

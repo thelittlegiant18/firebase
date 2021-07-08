@@ -14,7 +14,6 @@ export class LoginPage implements OnInit {
   formularioLogin: FormGroup;
   constructor(public AS: AuthService, public fb: FormBuilder, public router: Router, public ac: AlertController) {
     this.buildForm();
-
   }
 
   ngOnInit() {
@@ -24,7 +23,7 @@ export class LoginPage implements OnInit {
     if (this.formularioLogin.valid) {
       const value = this.formularioLogin.value;
       this.AS.loginUsuario(value.email, value.password).then(() => {
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/inicio-evento');
 
       }, async error => {
 

@@ -12,16 +12,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'detalle/:id',
-    loadChildren: () => import('./pages/detalle/detalle.module').then( m => m.DetallePageModule)
-  },
-  {
     path: 'crear',
     loadChildren: () => import('./pages/crear/crear.module').then( m => m.CrearPageModule)
   },
   {
-    path: 'detalles/:id',
-    loadChildren: () => import('./pages/detalles/detalles.module').then( m => m.DetallesPageModule)
+    path: 'detalle/:id',
+    loadChildren: () => import('./pages/detalle/detalle.module').then( m => m.DetallePageModule)
   },
   {
     path: 'login',
@@ -35,6 +31,23 @@ const routes: Routes = [
     path: 'registrar',
     loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
   },
+  {
+    path: 'crear-evento',
+    loadChildren: () => import('./pagina_evento/crear-evento/crear-evento.module').then( m => m.CrearEventoPageModule)
+  },
+  {
+    path: 'detalle-evento/:id',
+    loadChildren: () => import('./pagina_evento/detalle-evento/detalle-evento.module').then( m => m.DetalleEventoPageModule)
+  },
+  {
+    path: 'lista-evento',
+    loadChildren: () => import('./pagina_evento/lista-evento/lista-evento.module').then( m => m.ListaEventoPageModule)
+  },
+  {
+    path: 'inicio-evento',
+    loadChildren: () => import('./pagina_evento/inicio-evento/inicio-evento.module').then( m => m.InicioEventoPageModule)
+  },
+  
 ];
 
 @NgModule({
