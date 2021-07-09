@@ -15,7 +15,7 @@ export class EditarPage implements OnInit {
   song: any = {};
   idCancion: any;
 
-  constructor(private lc: LoadingController, private ac: AlertController, private fb: FormBuilder, private fs: FirestoreService, private router: Router, private ar: ActivatedRoute, rm: ReactiveFormsModule) {
+  constructor(private lc: LoadingController, private fb: FormBuilder, private fs: FirestoreService, private router: Router, private ar: ActivatedRoute) {
     this.EditSongForm = fb.group({
       nombreAlbum: ['', Validators.required],
       nombreArtista: ['', Validators.required],
@@ -25,7 +25,7 @@ export class EditarPage implements OnInit {
   }
 
   ngOnInit() {
-    this.idCancion=this.ar.snapshot.paramMap.get('id');
+    this.idCancion = this.ar.snapshot.paramMap.get('id');
   }
 
   async editarCacion() {
@@ -34,7 +34,7 @@ export class EditarPage implements OnInit {
     let song = {};
 
     song['nombreAlbum'] = this.EditSongForm.value.nombreAlbum;
-    song['nombreArtista']  = this.EditSongForm.value.nombreArtista;
+    song['nombreArtista'] = this.EditSongForm.value.nombreArtista;
     song['descripCancion'] = this.EditSongForm.value.descripCancion;
     song['nombreCancion'] = this.EditSongForm.value.nombreCancion;
 
