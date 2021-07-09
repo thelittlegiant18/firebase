@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     if (this.formularioLogin.valid) {
       const value = this.formularioLogin.value;
       this.AS.loginUsuario(value.email, value.password).then(() => {
-        this.router.navigateByUrl('/inicio-evento');
+        this.router.navigateByUrl('/home');
 
       }, async error => {
 

@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card *ngFor="let c of ListaCancion | async" routerLink="/detalles/{{c.id}}">
+  <ion-card *ngFor="let c of ListaCancion | async" routerLink="/detalle/{{c.id}}">
    <ion-card-header>
      {{c.nombreCancion}} 
      </ion-card-header>

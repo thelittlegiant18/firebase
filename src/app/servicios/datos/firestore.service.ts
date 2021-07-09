@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore ,AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestoreModule } from "@angular/fire/firestore";
 import { Cancion } from "src/app/cancion";
 
 @Injectable({
@@ -7,23 +7,31 @@ import { Cancion } from "src/app/cancion";
 })
 export class FirestoreService {
 
-  constructor(public firestore:AngularFirestore) { }
+  constructor(public firestore: AngularFirestore) { }
 
-  crearCancion(nombreAlbum:string,nombreArtista:string, descripCancion:string,nombreCancion:string):Promise<void> {
-   const id= this.firestore.createId();
-   return this.firestore.doc(`listaCancion/${id}`).set({id,nombreAlbum,nombreArtista,descripCancion,nombreCancion});
-  }
- 
-  obtenerListaCancion():AngularFirestoreCollection<Cancion>{
-  return this.firestore.collection('listaCancion'); 
-  }
-
-  detalleCancion(idCancion: string):AngularFirestoreDocument<Cancion>{
-   return this.firestore.collection(`listaCancion`).doc(idCancion);
+  crearCancion(
+    nombreAlbum: string,
+    nombreArtista: string,
+    descripCancion: string,
+    nombreCancion: string): Promise<void> {
+    const id = this.firestore.createId();
+    return this.firestore.doc(`listaCancion/${id}`).set({ id, nombreAlbum, nombreArtista, descripCancion, nombreCancion });
   }
 
-  eliminarCancion(idCancion: string):Promise<void>{
-   return this.firestore.doc(`listaCancion/${idCancion}`).delete();
+  obtenerListaCancion(): AngularFirestoreCollection<Cancion> {
+    return this.firestore.collection('listaCancion');
+  }
+
+  detalleCancion(idCancion: string): AngularFirestoreDocument<Cancion> {
+    return this.firestore.collection(`listaCancion`).doc(idCancion);
+  }
+
+  eliminarCancion(idCancion: string): Promise<void> {
+    return this.firestore.doc(`listaCancion/${idCancion}`).delete();
+  }
+
+  editarCacion(idCancion, song): Promise<void> {
+    return this.firestore.doc(`listaCancion/${idCancion}`).update(song);
   }
 
 }

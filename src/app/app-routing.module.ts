@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'inicio-evento',
     loadChildren: () => import('./pagina_evento/inicio-evento/inicio-evento.module').then( m => m.InicioEventoPageModule)
   },
+  {
+    path: 'editar/:id',
+    loadChildren: () => import('./pages/editar/editar.module').then( m => m.EditarPageModule)
+  },
   
 ];
 

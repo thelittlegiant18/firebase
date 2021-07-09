@@ -15,4 +15,5 @@
 <h3> Descripción</h3>
 <p> {{ (cancion | async)?.descripCancion }}</p>
 <ion-button expand="block" (click)="eliminarCancion()"> Elminar Cancion </ion-button>
+<ion-button expand="block" routerLink="/editar/{{idCancion}}"> Editar Cancion </ion-button>
 </ion-content>  

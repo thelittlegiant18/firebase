@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Crear Cancion </ion-title>
+    <ion-title>Editar Cancion </ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="formularioCrear" (submit)="crearCancion()">
+  <form [formGroup]="EditSongForm" (submit)="editarCacion()">
     <ion-item>
       <ion-label stacked> Nombre de la Canción</ion-label>
       <ion-input formControlName="nombreCancion" type="text" aria-placeholder="Como se llama esta canción? ">
@@ -28,6 +28,6 @@
       <ion-input formControlName="descripCancion" type="text" aria-placeholder=" Cual es la descripción de la Canción?">
       </ion-input>
     </ion-item>
-    <ion-button expand="block" type="submit"> Agregar</ion-button>
+    <ion-button expand="block" type="submit" [disabled]="!EditSongForm.valid"> Editar Cacnión</ion-button>
   </form>
 </ion-content>
